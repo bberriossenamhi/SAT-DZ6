@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>pydeck</title>
+        <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <script src='https://cdn.jsdelivr.net/npm/@deck.gl/jupyter-widget@~9.0.*/dist/index.js'></script>
+    <style>
+    body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#deck-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+#deck-container canvas {
+  z-index: 1;
+  background: none;
+}
+    </style>
+  </head>
+  <body>
+    <div id="deck-container">
+    </div>
+  </body>
+  <script>
+    const container = document.getElementById('deck-container');
+    const jsonInput = {
+  "initialViewState": {
+    "latitude": -16.58103,
+    "longitude": -71.32836,
+    "pitch": 50,
+    "zoom": 10
+  },
+  "layers": [
+    {
+      "@@type": "ScatterplotLayer",
+      "data": [
+        {
+          "Acumulado": 24.8,
+          "Altura": 2809,
+          "Estaci\u00f3n": "Cayma",
+          "Latitud": -16.31689,
+          "Longitud": -71.57919,
+          "Precipitaci\u00f3n": 0.6
+        },
+        {
+          "Acumulado": 30.7,
+          "Altura": 2885,
+          "Estaci\u00f3n": "Chiguata",
+          "Latitud": -16.40645,
+          "Longitud": -71.40914,
+          "Precipitaci\u00f3n": 1.8
+        },
+        {
+          "Acumulado": 8.8,
+          "Altura": 2326,
+          "Estaci\u00f3n": "Pampilla",
+          "Latitud": -16.41378,
+          "Longitud": -71.53459,
+          "Precipitaci\u00f3n": 0.2
+        },
+        {
+          "Acumulado": 26.1,
+          "Altura": 2734,
+          "Estaci\u00f3n": "San Francisco",
+          "Latitud": -16.38519,
+          "Longitud": -71.49044,
+          "Precipitaci\u00f3n": 0.8
+        },
+        {
+          "Acumulado": 83.0,
+          "Altura": 3368,
+          "Estaci\u00f3n": "Tuctumpaya",
+          "Latitud": -16.48827,
+          "Longitud": -71.33463,
+          "Precipitaci\u00f3n": 2.0
+        },
+        {
+          "Acumulado": 14.6,
+          "Altura": 2662,
+          "Estaci\u00f3n": "Yura",
+          "Latitud": -16.30271,
+          "Longitud": -71.62395,
+          "Precipitaci\u00f3n": 0.2
+        },
+        {
+          "Acumulado": 117.8,
+          "Altura": 3269,
+          "Estaci\u00f3n": "San Jose de Uzu\u00f1a",
+          "Latitud": -16.58103,
+          "Longitud": -71.32836,
+          "Precipitaci\u00f3n": 5.0
+        },
+        {
+          "Acumulado": 7.1,
+          "Altura": 2196,
+          "Estaci\u00f3n": "Tingo Grande ",
+          "Latitud": -16.45992,
+          "Longitud": -71.57431,
+          "Precipitaci\u00f3n": 0.0
+        },
+        {
+          "Acumulado": 0.0,
+          "Altura": 1961,
+          "Estaci\u00f3n": "Puente Del Diablo",
+          "Latitud": -16.42665,
+          "Longitud": -71.67507,
+          "Precipitaci\u00f3n": 0.0
+        }
+      ],
+      "getFillColor": "@@=[0, (255 - Precipitaci\u00f3n * 5), 255, 150]",
+      "getPosition": "@@=[Longitud, Latitud]",
+      "getRadius": 2000,
+      "id": "0bbb2cef-cf9a-4555-8687-0bfce468f518",
+      "pickable": true
+    },
+    {
+      "@@type": "ColumnLayer",
+      "data": [
+        {
+          "Acumulado": 24.8,
+          "Altura": 2809,
+          "Estaci\u00f3n": "Cayma",
+          "Latitud": -16.31689,
+          "Longitud": -71.57919,
+          "Precipitaci\u00f3n": 0.6
+        },
+        {
+          "Acumulado": 30.7,
+          "Altura": 2885,
+          "Estaci\u00f3n": "Chiguata",
+          "Latitud": -16.40645,
+          "Longitud": -71.40914,
+          "Precipitaci\u00f3n": 1.8
+        },
+        {
+          "Acumulado": 8.8,
+          "Altura": 2326,
+          "Estaci\u00f3n": "Pampilla",
+          "Latitud": -16.41378,
+          "Longitud": -71.53459,
+          "Precipitaci\u00f3n": 0.2
+        },
+        {
+          "Acumulado": 26.1,
+          "Altura": 2734,
+          "Estaci\u00f3n": "San Francisco",
+          "Latitud": -16.38519,
+          "Longitud": -71.49044,
+          "Precipitaci\u00f3n": 0.8
+        },
+        {
+          "Acumulado": 83.0,
+          "Altura": 3368,
+          "Estaci\u00f3n": "Tuctumpaya",
+          "Latitud": -16.48827,
+          "Longitud": -71.33463,
+          "Precipitaci\u00f3n": 2.0
+        },
+        {
+          "Acumulado": 14.6,
+          "Altura": 2662,
+          "Estaci\u00f3n": "Yura",
+          "Latitud": -16.30271,
+          "Longitud": -71.62395,
+          "Precipitaci\u00f3n": 0.2
+        },
+        {
+          "Acumulado": 117.8,
+          "Altura": 3269,
+          "Estaci\u00f3n": "San Jose de Uzu\u00f1a",
+          "Latitud": -16.58103,
+          "Longitud": -71.32836,
+          "Precipitaci\u00f3n": 5.0
+        },
+        {
+          "Acumulado": 7.1,
+          "Altura": 2196,
+          "Estaci\u00f3n": "Tingo Grande ",
+          "Latitud": -16.45992,
+          "Longitud": -71.57431,
+          "Precipitaci\u00f3n": 0.0
+        },
+        {
+          "Acumulado": 0.0,
+          "Altura": 1961,
+          "Estaci\u00f3n": "Puente Del Diablo",
+          "Latitud": -16.42665,
+          "Longitud": -71.67507,
+          "Precipitaci\u00f3n": 0.0
+        }
+      ],
+      "elevationScale": 10,
+      "getElevation": "@@=Precipitaci\u00f3n * 100",
+      "getFillColor": "@@=[0, (255 - Precipitaci\u00f3n * 5), 255, 150]",
+      "getPosition": "@@=[Longitud, Latitud]",
+      "id": "5f83eee4-1d2c-4cf0-a46e-fe0909756e03",
+      "pickable": true,
+      "radius": 1000
+    }
+  ],
+  "mapProvider": "carto",
+  "mapStyle": "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
+  "views": [
+    {
+      "@@type": "MapView",
+      "controller": true
+    }
+  ]
+};
+    const tooltip = {'html': '<b>Estación:</b> {Estación}<br><b>Precipitación:</b> {Precipitación} mm<br><b>Acumulado:</b> {Acumulado} mm', 'style': {'color': 'white'}};
+    const customLibraries = null;
+    const configuration = null;
+
+    const deckInstance = createDeck({
+                  container,
+      jsonInput,
+      tooltip,
+      customLibraries,
+      configuration
+    });
+
+  </script>
+</html>
